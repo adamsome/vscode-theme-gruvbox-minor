@@ -1,0 +1,16 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "outDir": "./build",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "types": ["node"]
+  },
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*"]
+}

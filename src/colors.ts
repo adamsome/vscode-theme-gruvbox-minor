@@ -80,7 +80,7 @@ const getLight = (subtype: Subtype): Record<Color, string[]> => ({
     NAMED.light3,
     NAMED.light4,
   ],
-  fg: [NAMED.dark0, NAMED.dark1, NAMED.dark2, NAMED.dark3, NAMED.light4],
+  fg: [NAMED.dark0, NAMED.dark1, NAMED.dark2, NAMED.dark3, NAMED.dark4],
   gray: [NAMED.gray_244],
   red: [NAMED.neutral_red, NAMED.faded_red],
   green: [NAMED.neutral_green, NAMED.faded_green],

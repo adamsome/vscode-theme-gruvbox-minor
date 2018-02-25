@@ -1,28 +1,31 @@
-# Gruvbox Theme
+# Gruvbox Minor
 
-A [gruvbox](https://github.com/morhetz/gruvbox) theme including syntax highlighting and workbench & terminal colors.
+A Visual Studio Code theme based off of the original
+[gruvbox](https://github.com/morhetz/gruvbox) theme and the
+Visual Studio Code
+[Gruvbox Theme](https://github.com/jdinhify/vscode-theme-gruvbox).
 
 ## Variants
 
-* Dark - Medium Contrast
-* Dark - Hard Contrast
-* Dark - Soft Contrast
-* Light - Medium Contrast
-* Light - Hard Contrast
-* Light - Soft Contrast
-
-We're not users of Light versions so we need help to make light versions better. Please contribute if you have any suggestions.
+* Dark Medium
+* Dark Hard
+* Dark Soft
+* Light Medium
+* Light Hard
+* Light Soft
 
 ## Screenshots
 
 ![screenshots](images/screenshots.jpg)
 
-## PRs are welcomed!
+## PRs are welcomed
 
 ### Tips
 
-* In the `json` file, `scope` can be an `array` or a `string` of CSS classes
-* VSCode's `Developer: Inspect TM Scopes` command is useful to find out the scope
+* In the `json` file, `scope` can be an `array` or a `string`
+  of CSS classes
+* VSCode's `Developer: Inspect TM Scopes` command is useful
+  to find out the scope
 
 ### Customization
 
@@ -35,9 +38,13 @@ Customizations and tweaks can be made to all six themes at once by:
 
 ## Thank Yous
 
-Special thank to the creator of [gruvbox](https://github.com/morhetz/gruvbox)
+Special thanks to the creator of [gruvbox](https://github.com/morhetz/gruvbox)
 
-### Contributors
+Thanks to:
 
+* [jdinhify](https://github.com/jdinhify)
 * [eximus](https://github.com/3ximus)
-* [adamsome](https://github.com/adamsome)
+
+who worked on the original VSCode Gruvbox theme that this is based on:
+
+[Gruvbox Theme](https://github.com/jdinhify/vscode-theme-gruvbox)

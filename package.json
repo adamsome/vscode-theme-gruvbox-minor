@@ -28,42 +28,42 @@
       {
         "label": "Gruvbox Minor Dark Medium",
         "uiTheme": "vs-dark",
-        "path": "./themes/gruvbox-dark-medium.json",
+        "path": "./themes/gruvbox-minor-dark-medium.json",
         "subtype": "medium",
         "make": true
       },
       {
         "label": "Gruvbox Minor Dark Hard",
         "uiTheme": "vs-dark",
-        "path": "./themes/gruvbox-dark-hard.json",
+        "path": "./themes/gruvbox-minor-dark-hard.json",
         "subtype": "hard",
         "make": true
       },
       {
         "label": "Gruvbox Minor Dark Soft",
         "uiTheme": "vs-dark",
-        "path": "./themes/gruvbox-dark-soft.json",
+        "path": "./themes/gruvbox-minor-dark-soft.json",
         "subtype": "soft",
         "make": true
       },
       {
         "label": "Gruvbox Minor Light Medium",
         "uiTheme": "vs",
-        "path": "./themes/gruvbox-light-medium.json",
+        "path": "./themes/gruvbox-minor-light-medium.json",
         "subtype": "medium",
         "make": true
       },
       {
         "label": "Gruvbox Minor Light Hard",
         "uiTheme": "vs",
-        "path": "./themes/gruvbox-light-hard.json",
+        "path": "./themes/gruvbox-minor-light-hard.json",
         "subtype": "hard",
         "make": true
       },
       {
         "label": "Gruvbox Minor Light Soft",
         "uiTheme": "vs",
-        "path": "./themes/gruvbox-light-soft.json",
+        "path": "./themes/gruvbox-minor-light-soft.json",
         "subtype": "soft",
         "make": true
       }

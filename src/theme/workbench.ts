@@ -7,30 +7,33 @@ export const makeWorkbenchColors = (
   // Background
   const bg = c(Color.BG)
   const bgSoft = c(Color.BG, 1)
-  const bgTransparent = opacity(0, c(Color.BG))
+  const transparent = opacity(0, c(Color.BG))
   const border = c(Color.BG, 1)
   // Foreground
-  const fg = c(Color.FG, 1)
-  const fgHint = c(Color.BG, 3)
-  // Highlighting
-  const highlight = c(Color.Aqua)
-  const highlightHard = c(Color.Aqua, 1)
+  const fg = c(Color.Gray)
+  const fgHint = c(Color.BG, 2)
+  const fgSubtle = c(Color.BG, 3)
+  // General UI
+  const primary = c(Color.Yellow, 1)
+  const highlight = c(Color.Yellow)
+  const highlightHard = c(Color.Yellow, 1)
+  const selection = opacity(25, c(Color.Aqua))
+  const findMatch = c(Color.Purple, 1)
+  const word = c(Color.Blue, 1)
+  const cursor = primary
   // Notifications
-  const info = c(Color.Blue, 1)
-  const infoSoft = c(Color.Blue)
+  const info = c(Color.Yellow, 1)
+  const infoSoft = c(Color.Yellow)
   const error = c(Color.Red, 1)
   const errorSoft = c(Color.Red)
-  const warn = c(Color.Yellow, 1)
-  const warnSoft = c(Color.Yellow)
+  const warn = c(Color.Orange, 1)
+  const warnSoft = c(Color.Orange)
   // Changes
   const added = c(Color.Green, 1)
   const addedSoft = c(Color.Green)
   const deleted = c(Color.Red, 1)
   const deletedSoft = c(Color.Red)
-  const modified = c(Color.Blue, 1)
-  // General UI
-  const primary = c(Color.Blue)
-  const accent = c(Color.Purple, 1)
+  const modified = c(Color.Yellow, 1)
   // Merge
   const mergeCurrent = c(Color.Blue)
   const mergeIncoming = c(Color.Aqua)
@@ -41,7 +44,7 @@ export const makeWorkbenchColors = (
     focusBorder: border,
     foreground: fg,
     'widget.shadow': opacity(18.75, bg),
-    'selection.background': opacity(50, highlight),
+    'selection.background': selection,
     errorForeground: error,
     // BUTTON
     'button.background': opacity(50, primary),
@@ -65,10 +68,10 @@ export const makeWorkbenchColors = (
     // SCROLL BAR
     'scrollbar.shadow': bg,
     'scrollbarSlider.activeBackground': highlight,
-    'scrollbarSlider.hoverBackground': fgHint,
+    'scrollbarSlider.hoverBackground': fgSubtle,
     'scrollbarSlider.background': opacity(59.765625, c(Color.BG, 2)),
     // BADGE
-    'badge.background': accent,
+    'badge.background': primary,
     'badge.foreground': bg,
     // PROGRESS BAR
     'progressBar.background': highlight,
@@ -76,84 +79,87 @@ export const makeWorkbenchColors = (
     'list.activeSelectionBackground': opacity(50, bgSoft),
     'list.activeSelectionForeground': highlightHard,
     'list.hoverBackground': opacity(50, bgSoft),
-    'list.hoverForeground': c(Color.FG, 2),
+    'list.hoverForeground': fg,
     'list.focusBackground': bgSoft,
     'list.focusForeground': fg,
     'list.inactiveSelectionForeground': highlight,
-    'list.inactiveSelectionBackground': bgTransparent,
+    'list.inactiveSelectionBackground': transparent,
     'list.dropBackground': bgSoft,
     'list.highlightForeground': highlight,
     // SIDE BAR
     'sideBar.background': bg,
-    'sideBar.foreground': c(Color.FG, 2),
-    'sideBar.border': border,
+    'sideBar.foreground': fg,
+    'sideBar.border': transparent,
     'sideBarTitle.foreground': fg,
-    'sideBarSectionHeader.background': bgTransparent,
+    'sideBarSectionHeader.background': transparent,
     'sideBarSectionHeader.foreground': fg,
     // ACTIVITY BAR
     'activityBar.background': bg,
     'activityBar.dropBackground': bg,
     'activityBar.foreground': fg,
-    'activityBar.border': border,
+    'activityBar.border': transparent,
     'activityBarBadge.background': primary,
-    'activityBarBadge.foreground': fg,
+    'activityBarBadge.foreground': bg,
     // EDITOR GROUPS
     'editorGroup.background': bgSoft,
-    'editorGroup.border': border,
+    'editorGroup.border': transparent,
     'editorGroup.dropBackground': opacity(37.5, bgSoft),
     'editorGroup.noTabsBackground': bgSoft,
     'editorGroup.tabsbackground': bgSoft,
     'editorGroup.tabsBorder': opacity(0, c(Color.BG, 1)),
     // TABS
-    'tab.border': bgTransparent,
+    'tab.border': transparent,
     'tab.activeBorder': bg,
     'tab.activeForeground': fg,
-    'tab.inactiveForeground': c(Color.FG, 4),
+    'tab.inactiveForeground': fgSubtle,
     'tab.inactiveBackground': opacity(37.5, bgSoft),
-    'tab.unfocusedActiveForeground': c(Color.FG, 4),
-    'tab.unfocusedActiveBorder': bgTransparent,
-    'tab.unfocusedInactiveForeground': c(Color.Gray),
+    'tab.unfocusedActiveForeground': fgSubtle,
+    'tab.unfocusedActiveBorder': transparent,
+    'tab.unfocusedInactiveForeground': fgHint,
     // EDITOR
     'editor.background': bg,
     'editor.foreground': fg,
     'editorLineNumber.foreground': fgHint,
-    'editorCursor.foreground': fg,
-    'editor.selectionBackground': opacity(25, highlight),
-    'editor.selectionHighlightBackground': opacity(25, c(Color.Yellow, 1)),
-    'editor.hoverHighlightBackground': opacity(31.25, highlight),
-    'editorLink.activeForeground': fg,
-    'editor.findMatchBackground': opacity(43.75, c(Color.Blue, 1)),
-    'editor.findMatchHighlightBackground': opacity(18.75, c(Color.Orange, 1)),
-    'editor.findRangeHighlightBackground': opacity(43.75, c(Color.Blue, 1)),
+    'editorCursor.foreground': cursor,
+    'editorCursor.background': bg,
+    'editor.selectionBackground': selection,
+    'editor.selectionHighlightBackground': opacity(15, fg),
+    'editor.wordHighlightBackground': opacity(20, word),
+    'editor.wordHighlightStrongBackground': opacity(50, word),
+    'editor.hoverHighlightBackground': opacity(31.25, c(Color.Aqua)),
+    'editor.findMatchBackground': opacity(50, findMatch),
+    'editor.findMatchHighlightBackground': opacity(30, findMatch),
+    'editor.findRangeHighlightBackground': opacity(15, findMatch),
     'editor.lineHighlightBackground': opacity(37.5, bgSoft),
     'editor.lineHighlightBorder': opacity(0, bgSoft),
-    'editorWhitespace.foreground': opacity(12.5, c(Color.FG, 4)),
-    'editorIndentGuide.background': opacity(12.5, c(Color.FG, 4)),
-    'editorRuler.foreground': opacity(25, c(Color.FG, 4)),
-    'editorCodeLens.foreground': opacity(56.25, c(Color.FG, 4)),
-    'editorBracketMatch.border': bgTransparent,
+    'editorWhitespace.foreground': opacity(12.5, fgSubtle),
+    'editorIndentGuide.background': opacity(12.5, fgHint),
+    'editorRuler.foreground': opacity(12.5, fgHint),
+    'editorCodeLens.foreground': opacity(56.25, fgSubtle),
+    'editorBracketMatch.border': transparent,
     'editorBracketMatch.background': opacity(50, c(Color.Gray)),
-    'editorHoverWidget.background': bg,
+    'editorHoverWidget.background': opacity(80, bgSoft),
     'editorHoverWidget.border': border,
-    'editorOverviewRuler.border': bgTransparent,
-    'editorOverviewRuler.findMatchForeground': c(Color.FG, 3),
-    'editorOverviewRuler.rangeHighlightForeground': c(Color.FG, 3),
+    'editorOverviewRuler.border': transparent,
+    'editorOverviewRuler.findMatchForeground': opacity(30, findMatch),
+    'editorOverviewRuler.rangeHighlightForeground': opacity(15, findMatch),
     'editorOverviewRuler.selectionHighlightForeground': fgHint,
-    'editorOverviewRuler.wordHighlightForeground': fgHint,
-    'editorOverviewRuler.wordHighlightStrongForeground': fgHint,
+    'editorOverviewRuler.wordHighlightForeground': opacity(40, word),
+    'editorOverviewRuler.wordHighlightStrongForeground': opacity(60, word),
     'editorOverviewRuler.modifiedForeground': modified,
     'editorOverviewRuler.addedForeground': modified,
     'editorOverviewRuler.deletedForeground': modified,
     'editorOverviewRuler.errorForeground': error,
     'editorOverviewRuler.warningForeground': warnSoft,
-    'editorOverviewRuler.infoForeground': accent,
-    'editorGutter.background': bgTransparent,
+    'editorOverviewRuler.infoForeground': c(Color.Aqua, 1),
+    'editorGutter.background': transparent,
     'editorGutter.modifiedBackground': modified,
     'editorGutter.addedBackground': added,
     'editorGutter.deletedBackground': deleted,
     'editorError.foreground': errorSoft,
     'editorWarning.foreground': warnSoft,
     'editorInfo.foreground': infoSoft,
+    'editorLink.activeForeground': fg,
     // DIFF EDITOR
     'diffEditor.insertedTextBackground': opacity(18.75, added),
     'diffEditor.insertedTextBorder': opacity(0, addedSoft),
@@ -171,35 +177,34 @@ export const makeWorkbenchColors = (
     'peekView.border': border,
     'peekViewEditor.background': opacity(31.25, bgSoft),
     'peekViewEditorGutter.background': opacity(31.25, bgSoft),
-    'peekViewEditor.matchHighlightBackground': '',
     'peekViewResult.background': opacity(31.25, bgSoft),
     'peekViewResult.fileForeground': fg,
     'peekViewResult.matchHighlightBackground': opacity(18.75, highlightHard),
     'peekViewResult.selectionBackground': opacity(18.75, highlightHard),
     'peekViewResult.selectionForeground': opacity(18.75, highlightHard),
     'peekViewTitle.background': opacity(31.25, bgSoft),
-    'peekViewTitleDescription.foreground': c(Color.FG, 3),
+    'peekViewTitleDescription.foreground': fgSubtle,
     'peekViewTitleLabel.foreground': fg,
     // MERGE CONFLICTS
     'merge.currentHeaderBackground': opacity(25, mergeCurrent),
     'merge.currentContentBackground': opacity(12.5, mergeCurrent),
     'merge.incomingHeaderBackground': opacity(25, mergeIncoming),
     'merge.incomingContentBackground': opacity(12.5, mergeIncoming),
-    'merge.border': bgTransparent,
+    'merge.border': transparent,
     'editorOverviewRuler.currentContentForeground': mergeCurrent,
     'editorOverviewRuler.incomingContentForeground': mergeIncoming,
     'editorOverviewRuler.commonContentForeground': mergeCommon,
     // PANELS
-    'panel.border': bgTransparent,
+    'panel.border': transparent,
     'panelTitle.activeForeground': fg,
     // STATUS BAR
     'statusBar.background': bg,
     'statusBar.foreground': fg,
-    'statusBar.debuggingBackground': c(Color.Orange, 1),
+    'statusBar.debuggingBackground': c(Color.Yellow, 1),
     'statusBar.debuggingForeground': bg,
-    'statusBar.debuggingBorder': bgTransparent,
+    'statusBar.debuggingBorder': transparent,
     'statusBar.noFolderBackground': bg,
-    'statusBar.noFolderBorder': bgTransparent,
+    'statusBar.noFolderBorder': transparent,
     'statusBar.prominentBackground': highlight,
     'statusBar.prominentHoverBackground': opacity(43.75, highlight),
     // INTEGRATED TERMINAL
@@ -226,16 +231,16 @@ export const makeWorkbenchColors = (
     'titleBar.activeForeground': fg,
     'titleBar.inactiveBackground': bg,
     // GIT COLORS
-    'gitDecoration.modifiedResourceForeground': c(Color.Yellow),
+    'gitDecoration.modifiedResourceForeground': c(Color.Blue),
     'gitDecoration.deletedResourceForeground': deletedSoft,
     'gitDecoration.untrackedResourceForeground': addedSoft,
-    'gitDecoration.ignoredResourceForeground': c(Color.BG, 4),
+    'gitDecoration.ignoredResourceForeground': fgHint,
     'gitDecoration.conflictingResourceForeground': c(Color.Purple),
     // NOTIFICATION
     'notification.background': bg,
     'notification.foreground': fg,
-    'notification.buttonBackground': fgHint,
-    'notification.buttonHoverBackground': opacity(31.25, fgHint),
+    'notification.buttonBackground': fgSubtle,
+    'notification.buttonHoverBackground': opacity(31.25, fgSubtle),
     'notification.buttonForeground': fg,
     'notification.infoBackground': info,
     'notification.infoForeground': bg,
@@ -244,11 +249,9 @@ export const makeWorkbenchColors = (
     'notification.errorBackground': error,
     'notification.errorForeground': bg,
     // EXTENSIONS
-    'extensionButton.prominentBackground': opacity(50, c(Color.Green, 1)),
-    'extensionButton.prominentHoverBackground': opacity(
-      18.75,
-      c(Color.Green, 1),
-    ),
+    'extensionButton.prominentForeground': bg,
+    'extensionButton.prominentBackground': opacity(100, primary),
+    'extensionButton.prominentHoverBackground': opacity(75, primary),
     // OTHERS
     'textLink.foreground': c(Color.Blue, 1),
     'textLink.activeForeground': c(Color.Blue),

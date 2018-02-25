@@ -1,15 +1,31 @@
 // A launch configuration that launches the extension inside a new window
 {
-    "version": "0.1.0",
-    "configurations": [
-        {
-            "name": "Launch Extension",
-            "type": "extensionHost",
-            "request": "launch",
-            "internalConsoleOptions": "openOnFirstSessionStart",
-            "stopOnEntry": false,
-            "runtimeExecutable": "${execPath}",
-            "args": ["--extensionDevelopmentPath=${workspaceRoot}" ]
-        }
-    ]
+  "version": "0.1.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Make Themes",
+      "program": "${workspaceFolder}/build/index.js",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/build/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Build & Make Themes",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "start"],
+      "port": 9229
+    },
+    {
+      "name": "Launch Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "internalConsoleOptions": "openOnFirstSessionStart",
+      "stopOnEntry": false,
+      "runtimeExecutable": "${execPath}",
+      "args": ["--extensionDevelopmentPath=${workspaceRoot}"]
+    }
+  ]
 }

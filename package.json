@@ -31,27 +31,37 @@
       {
         "label": "Gruvbox Dark Hard",
         "uiTheme": "vs-dark",
-        "path": "./themes/gruvbox-dark-hard.json"
+        "path": "./themes/gruvbox-dark-hard.json",
+        "subtype": "hard",
+        "make": true
       },
       {
         "label": "Gruvbox Dark Soft",
         "uiTheme": "vs-dark",
-        "path": "./themes/gruvbox-dark-soft.json"
+        "path": "./themes/gruvbox-dark-soft.json",
+        "subtype": "soft",
+        "make": true
       },
       {
         "label": "Gruvbox Light Medium",
         "uiTheme": "vs",
-        "path": "./themes/gruvbox-light-medium.json"
+        "path": "./themes/gruvbox-light-medium.json",
+        "subtype": "medium",
+        "make": true
       },
       {
         "label": "Gruvbox Light Hard",
         "uiTheme": "vs",
-        "path": "./themes/gruvbox-light-hard.json"
+        "path": "./themes/gruvbox-light-hard.json",
+        "subtype": "hard",
+        "make": true
       },
       {
         "label": "Gruvbox Light Soft",
         "uiTheme": "vs",
-        "path": "./themes/gruvbox-light-soft.json"
+        "path": "./themes/gruvbox-light-soft.json",
+        "subtype": "soft",
+        "make": true
       }
     ]
   },

@@ -1,5 +1,5 @@
 import { makeColors } from './colors'
-import { PackageDef, Subtype, Theme, Type, UITheme } from './models'
+import { Color, PackageDef, Subtype, Theme, Type, UITheme } from './models'
 import { readJson, writeJson } from './util'
 
 import { makeTokenColors } from './theme/tokens'
@@ -20,6 +20,15 @@ if (pkg && pkg.contributes && pkg.contributes.themes) {
     const colors = makeWorkbenchColors(c)
     const tokenColors = makeTokenColors(c)
     const theme: Theme = { name: t.label, type, tokenColors, colors }
+
+    // Exceptions to the Light is the inverse of Dark rule
+    if (type === Type.Light) {
+      // Invert the activity badge text (FG1 to BG1)
+      theme.colors['activityBarBadge.foreground'] = c(Color.BG, 1)
+      // Remove inactive tab background opacity
+      theme.colors['tab.inactiveBackground'] = c(Color.BG, 1)
+    }
+
     writeJson(t.path, theme)
   })
 } else {

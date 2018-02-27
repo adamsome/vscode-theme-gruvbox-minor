@@ -4,8 +4,41 @@ export const makeTokenColors = (
   c: (color: Color, lightness?: number) => string,
 ): TokenColor[] => {
   const fg = c(Color.FG, 1)
+  const fgSubtle = c(Color.FG, 3)
+  const punctuation = fgSubtle
+  const comments = c(Color.BG, 4)
+  const numbers = c(Color.Purple, 1)
+  // Strings
+  const strings = c(Color.Green, 1)
+  const stringInterpolation = c(Color.Orange, 1)
+  const stringEscape = c(Color.Orange, 1)
+  // Regex
+  const regex = c(Color.Green, 1)
+  const regexCharacterClass = c(Color.Purple, 1)
+  const regexGroup = fgSubtle
+  const regexQuantifier = regexCharacterClass
+  // Keywords
+  const keywords = c(Color.Red, 1)
+  const operators = fgSubtle
+  const operatorsSpecial = keywords
+  const storage = keywords
+  const controls = keywords
+  const imports = keywords
+  // Functions
+  const functions = c(Color.Blue, 1)
+  const decorators = functions
+  // Types
+  const types = c(Color.Yellow, 1)
+  // Variables
+  const variables = fg
+  const variablesConstant = numbers
+  // Misc
+  const error = c(Color.Red)
   return [
+    // General
     {
+      name: 'Text',
+      scope: ['source', 'text.html'],
       settings: {
         background: c(Color.BG),
         foreground: fg,
@@ -30,505 +63,513 @@ export const makeTokenColors = (
       },
     },
     {
-      scope: ['comment', 'punctuation.definition.comment'],
-      settings: {
-        foreground: c(Color.Gray),
-        fontStyle: 'italic',
-      },
-    },
-    {
-      scope: ['constant', 'support.constant', 'variable.arguments'],
-      settings: {
-        foreground: c(Color.Purple, 1),
-      },
-    },
-    {
-      scope: 'constant.rgb-value',
-      settings: {
-        foreground: fg,
-      },
-    },
-    {
-      scope: 'entity.name.selector',
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'entity.other.attribute-name',
-      settings: {
-        foreground: c(Color.Yellow, 1),
-      },
-    },
-    {
-      scope: ['entity.name.tag', 'punctuation.tag'],
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: ['invalid', 'invalid.illegal'],
-      settings: {
-        foreground: c(Color.Red),
-      },
-    },
-    {
-      scope: 'invalid.deprecated',
-      settings: {
-        foreground: c(Color.Purple),
-      },
-    },
-    {
-      scope: 'meta.selector',
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'meta.preprocessor',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: 'meta.preprocessor.string',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      scope: 'meta.preprocessor.numeric',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      scope: 'meta.header.diff',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: 'storage',
-      settings: {
-        foreground: c(Color.Red, 1),
-      },
-    },
-    {
-      scope: 'storage.modifier',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: 'string',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      scope: 'string.tag',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      scope: 'string.value',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      scope: 'string.regexp',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: 'string.escape',
-      settings: {
-        foreground: c(Color.Red, 1),
-      },
-    },
-    {
-      scope: 'string.quasi',
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'string.entity',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      scope: 'object',
-      settings: {
-        foreground: fg,
-      },
-    },
-    {
-      scope: 'module.node',
-      settings: {
-        foreground: c(Color.Blue, 1),
-      },
-    },
-    {
-      scope: 'support.type.property-name',
-      settings: {
-        foreground: c(Color.Aqua),
-      },
-    },
-    {
-      scope: 'keyword',
-      settings: {
-        foreground: c(Color.Red, 1),
-      },
-    },
-    {
-      scope: 'keyword.control',
-      settings: {
-        foreground: c(Color.Red, 1),
-      },
-    },
-    {
-      scope: 'keyword.control.module',
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'keyword.control.less',
-      settings: {
-        foreground: c(Color.Yellow),
-      },
-    },
-    {
-      scope: 'keyword.operator',
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'keyword.operator.new',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: 'keyword.other.unit',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      scope: 'metatag.php',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: 'support.function.git-rebase',
-      settings: {
-        foreground: c(Color.Aqua),
-      },
-    },
-    {
-      scope: 'constant.sha.git-rebase',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      name: 'Types declaration and references',
-      scope: [
-        'meta.type.name',
-        'meta.return.type',
-        'meta.return-type',
-        'meta.cast',
-        'meta.type.annotation',
-        'support.type',
-        'storage.type.cs',
-        'variable.class',
-      ],
-      settings: {
-        foreground: c(Color.Yellow, 1),
-      },
-    },
-    {
-      scope: ['variable.this', 'support.variable'],
-      settings: {
-        foreground: c(Color.Purple, 1),
-      },
-    },
-    {
-      scope: [
-        'entity.name',
-        'entity.static',
-        'entity.name.class.static.function',
-        'entity.name.function',
-        'entity.name.class',
-        'entity.name.type',
-      ],
-      settings: {
-        foreground: c(Color.Yellow, 1),
-      },
-    },
-    {
-      name: 'Function declarations',
-      scope: [
-        'storage.type.function',
-        'entity.function',
-        'entity.name.function.static',
-      ],
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'entity.name.function.function-call',
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'support.function.builtin',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: [
-        'entity.name.method',
-        'entity.name.method.function-call',
-        'entity.name.static.function-call',
-      ],
-      settings: {
-        foreground: c(Color.Aqua),
-      },
-    },
-    {
-      scope: 'brace',
-      settings: {
-        foreground: c(Color.FG, 2),
-      },
-    },
-    {
-      name: 'variables',
-      scope: [
-        'meta.parameter.type.variable',
-        'variable.parameter',
-        'variable.name',
-        'variable.other',
-        'variable',
-        'string.constant.other.placeholder',
-      ],
-      settings: {
-        foreground: c(Color.Blue, 1),
-      },
-    },
-    {
-      scope: 'prototype',
-      settings: {
-        foreground: c(Color.Purple, 1),
-      },
-    },
-    {
-      scope: 'storage.type.class',
-      settings: {
-        foreground: c(Color.Red, 1),
-      },
-    },
-    {
-      scope: ['punctuation'],
-      settings: {
-        foreground: c(Color.FG, 4),
-      },
-    },
-    {
-      scope: 'punctuation.quoted',
-      settings: {
-        foreground: fg,
-      },
-    },
-    {
-      scope: 'punctuation.quasi',
-      settings: {
-        foreground: c(Color.Red, 1),
-      },
-    },
-    {
       name: 'URL',
       scope: ['*url*', '*link*', '*uri*'],
       settings: {
         fontStyle: 'underline',
       },
     },
-    // ----------------------------------------
-    //            LANGUAGE SPECIFIC
-    // ----------------------------------------
-    // PYTHON ----------------------------------------
     {
-      name: 'Python function',
-      scope: ['meta.function.python', 'entity.name.function.python'],
+      scope: 'invalid',
       settings: {
-        foreground: c(Color.Aqua, 1),
+        foreground: error,
       },
     },
+
+    // Punctuation
+
     {
-      name: 'Python Function and Class definition keywords',
+      name: 'Punctuation',
       scope: [
-        'storage.type.function.python',
-        'storage.modifier.declaration',
-        'storage.type.class.python',
+        'punctuation',
+        // TypeScript/JavaScript string interpolation reset
+        'meta.embedded',
+        // TypeScript/JavaScript unmarked punctuation reset
+        'source.js',
+        'source.ts',
       ],
       settings: {
-        foreground: c(Color.Red, 1),
+        foreground: punctuation,
+      },
+    },
+
+    // Comments
+
+    {
+      scope: ['comment', 'punctuation.definition.comment'],
+      settings: {
+        foreground: comments,
+        fontStyle: 'italic',
+      },
+    },
+
+    // Constants
+
+    {
+      name: 'Constants',
+      scope: [
+        'constant',
+        'constant.numeric',
+        'constant.language',
+        'constant.other',
+        'support.constant',
+        'meta.preprocessor.numeric',
+        'keyword.other.unit',
+      ],
+      settings: {
+        foreground: numbers,
+      },
+    },
+
+    // Strings
+
+    {
+      scope: ['string', 'meta.preprocessor.string'],
+      settings: {
+        foreground: strings,
       },
     },
     {
-      name: 'Python Function Call',
-      scope: 'meta.function-call.generic',
+      scope: 'constant.character.escape',
+      settings: {
+        foreground: stringEscape,
+      },
+    },
+    {
+      name: 'String interpolation',
+      scope: [
+        'punctuation.definition.template-expression.begin',
+        'punctuation.definition.interpolation.begin.bracket',
+        'punctuation.definition.template-expression.end',
+        'punctuation.definition.interpolation.end.bracket',
+        'punctuation.section.embedded',
+        'string.interpolated punctuation.definition.string.begin',
+        'string.interpolated punctuation.definition.string.end',
+      ],
+      settings: {
+        foreground: stringInterpolation,
+      },
+    },
+
+    // RegEx
+
+    {
+      name: 'Regex text',
+      scope: 'string.regexp',
+      settings: {
+        foreground: regex,
+      },
+    },
+    {
+      name: 'RegEx groups',
+      scope: [
+        'punctuation.definition.group.regexp',
+        'punctuation.definition.group.assertion.regexp',
+        'support.other.parenthesis.regexp',
+      ],
+      settings: {
+        foreground: regexGroup,
+      },
+    },
+    {
+      name: 'RegEx character classes or sets',
+      scope: [
+        'punctuation.definition.character-class.regexp',
+        'punctuation.character.set.begin.regexp',
+        'punctuation.character.set.end.regexp',
+        'constant.character.character-class.regexp',
+        'constant.other.character-class.set.regexp',
+        'constant.other.character-class.regexp',
+        'constant.character.set.regexp',
+      ],
+      settings: {
+        foreground: regexCharacterClass,
+      },
+    },
+    {
+      name: 'RegEx Quantifiers',
+      scope: 'keyword.operator.quantifier.regexp',
+      settings: {
+        foreground: regexQuantifier,
+      },
+    },
+    {
+      name: 'RegEx suffix control character',
+      scope: 'string.regexp keyword.other',
+      settings: {
+        foreground: punctuation,
+      },
+    },
+
+    // Storage
+
+    {
+      scope: 'storage',
+      settings: {
+        foreground: storage,
+      },
+    },
+
+    // Keywords
+
+    {
+      scope: 'keyword',
+      settings: {
+        foreground: keywords,
+      },
+    },
+    {
+      scope: 'keyword.operator',
+      settings: {
+        foreground: operators,
+      },
+    },
+    {
+      name: 'Keywords, special/emphasized',
+      scope: ['keyword.operator.ternary'],
+      settings: {
+        foreground: operatorsSpecial,
+      },
+    },
+    {
+      name: 'Keyword-like Operators',
+      scope: [
+        'variable.language',
+        'variable.this',
+        'keyword.operator.new',
+        'keyword.operator.expression',
+        'keyword.operator.cast',
+        'keyword.operator.sizeof',
+        'keyword.operator.logical.python',
+        'meta.preprocessor',
+        'meta.diff.header',
+      ],
+      settings: {
+        foreground: keywords,
+      },
+    },
+    {
+      name: 'Control flow Keywords',
+      scope: [
+        'keyword.control',
+        'keyword.control punctuation.definition.keyword',
+      ],
+      settings: {
+        foreground: controls,
+      },
+    },
+
+    // Imports
+
+    {
+      name: 'Import Keywords',
+      scope: [
+        'keyword.import',
+        'keyword.package',
+        'keyword.control.directive',
+        'keyword.control.export',
+        'keyword.control.import',
+        'keyword.other.import',
+        'keyword.other.package',
+        'meta.import keyword.control',
+        'support.type.object.module',
+      ],
+      settings: {
+        foreground: imports,
+      },
+    },
+    {
+      name: 'Import Identifiers',
+      scope: [
+        // Java
+        'storage.modifier.import.java',
+        'storage.modifier.package.java',
+        'variable.language.wildcard.java',
+      ],
+      settings: {
+        foreground: types,
+      },
+    },
+
+    // Functions
+
+    {
+      name: 'Function',
+      scope: [
+        'entity.name.function',
+        'entity.name.method',
+        'entity.name.static.function-call',
+        'support.function',
+        'support.constant.handlebars',
+        'variable.function',
+        // Python
+        'meta.function.python',
+        'meta.function-call.generic',
+        // Go
+        'entity.name.function.go',
+      ],
+      settings: {
+        foreground: functions,
+      },
+    },
+    {
+      name: 'Decorators',
+      scope: [
+        'meta.decorator entity.name.function',
+        'storage.type.annotation',
+        'meta.decorator punctuation.decorator',
+      ],
+      settings: {
+        foreground: decorators,
+      },
+    },
+
+    // Types
+
+    {
+      name: 'Types declaration and references',
+      scope: [
+        'entity.name',
+        'support.class',
+        'support.type',
+        'meta.return-type',
+        'meta.return.type',
+        'meta.type.name',
+        'meta.cast',
+        'meta.type.annotation',
+        // Go
+        'storage.type.numeric.go',
+        'storage.type.byte.go',
+        'storage.type.boolean.go',
+        'storage.type.string.go',
+        'storage.type.uintptr.go',
+        'keyword.struct.go',
+        'keyword.interface.go',
+        // C
+        'storage.type.c',
+        // C#
+        'storage.type.cs',
+        'storage.type.generic.cs',
+        'storage.type.modifier.cs',
+        'storage.type.variable.cs',
+        // Groovy
+        'storage.type.groovy',
+        'storage.type.parameters.groovy',
+        'storage.type.generic.groovy',
+        'storage.type.object.array.groovy',
+        'storage.type.primitive.array.groovy',
+        'storage.type.primitive.groovy',
+        // Java
+        'storage.type.java',
+        'storage.type.generic.java',
+        'storage.type.object.array.java',
+        'storage.type.primitive.array.java',
+        'storage.type.primitive.java',
+        'storage.type.token.java',
+        // TypeScript
+        'meta.type.cast.expr',
+        'meta.type.new.expr',
+        'support.constant.math',
+        'support.constant.dom',
+        'support.constant.json',
+        'entity.other.inherited-class',
+      ],
+      settings: {
+        foreground: types,
+      },
+    },
+
+    // Variables
+
+    {
+      name: 'Variables',
+      scope: [
+        'meta.parameter.type.variable',
+        'support.variable',
+        'variable.parameter',
+        'variable.name',
+        'variable.other',
+        'variable',
+        'string.constant.other.placeholder',
+        // TypeScript
+        'meta.object-literal.key',
+        'meta.decorator.ts meta.object.member',
+      ],
+      settings: {
+        foreground: variables,
+      },
+    },
+    {
+      name: 'Variable Constants',
+      scope: ['variable.other.constant'],
+      settings: {
+        foreground: variablesConstant,
+      },
+    },
+
+    // HTML / XML / CSS
+
+    {
+      name: 'HTML Tag',
+      scope: 'entity.name.tag',
+      settings: {
+        foreground: c(Color.Aqua, 1),
+        fontStyle: 'bold',
+      },
+    },
+    {
+      name: 'HTML Tag Close',
+      scope: 'tag.close entity.name.tag',
+      settings: {
+        foreground: c(Color.Aqua),
+        fontStyle: 'normal',
+      },
+    },
+    {
+      name: 'HTML Attribute',
+      scope: [
+        'entity.other.attribute-name',
+        'meta.tag.inline.any.html',
+        'meta.tag.sgml',
+      ],
       settings: {
         foreground: c(Color.Blue, 1),
       },
     },
     {
-      name: 'Python Function Arguments',
-      scope: 'meta.function-call.arguments',
-      settings: {
-        foreground: c(Color.FG, 2),
-      },
-    },
-    {
-      name: 'Python Function decorator',
-      scope: 'entity.name.function.decorator',
-      settings: {
-        foreground: c(Color.Yellow, 1),
-        fontStyle: 'bold',
-      },
-    },
-    {
-      name: 'Python ALL CAPS',
-      scope: 'constant.other.caps',
-      settings: {
-        fontStyle: 'bold',
-      },
-    },
-    // SHELL ----------------------------------------
-    {
-      scope: 'keyword.operator.logical',
-      settings: {
-        foreground: c(Color.Red, 1),
-      },
-    },
-    {
-      scope: 'punctuation.definition.logical-expression',
+      name: 'HTML Attribute ID',
+      scope: ['entity.other.attribute-name.id'],
       settings: {
         foreground: c(Color.Orange, 1),
       },
     },
     {
-      scope: 'string.inperpolated.dollar.shell',
+      name: 'HTML Codes Punctuation',
+      scope: 'punctuation.definition.entity.html',
       settings: {
-        foreground: c(Color.Orange, 1),
+        foreground: stringEscape,
       },
     },
     {
+      name: 'CSS Pseudo Classes/Elements',
       scope: [
-        'string.interpolated.dollar.shell',
-        'string.interpolated.backtick.shell',
+        'entity.other.attribute-name.pseudo-class',
+        'entity.other.attribute-name.pseudo-element',
+      ],
+      settings: {
+        foreground: fgSubtle,
+      },
+    },
+
+    // JSON
+
+    {
+      name: 'JSON Level 0',
+      scope: [
+        'source.json meta.structure.dictionary.json support.type.property-name.json',
+      ],
+      settings: {
+        foreground: c(Color.Blue, 1),
+      },
+    },
+    {
+      name: 'JSON Level 1',
+      scope: [
+        'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json',
       ],
       settings: {
         foreground: c(Color.Aqua, 1),
       },
     },
-    // C C++ ----------------------------------------
     {
-      scope: 'keyword.control.directive',
+      name: 'JSON Level 2',
+      scope: [
+        'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json',
+      ],
+      settings: {
+        foreground: c(Color.Yellow, 1),
+      },
+    },
+    {
+      name: 'JSON Level 3',
+      scope: [
+        'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json',
+      ],
+      settings: {
+        foreground: c(Color.Orange, 1),
+      },
+    },
+
+    // Python
+
+    {
+      name: 'Python Function Arguments',
+      scope: 'meta.function-call.arguments',
+      settings: {
+        foreground: fg,
+      },
+    },
+
+    // Shell
+
+    {
+      name: 'Shell Script Built-in Functions',
+      scope: ['source.shell support.function.builtin'],
+      settings: {
+        foreground: functions,
+      },
+    },
+    {
+      name: 'Shell Script Variables',
+      scope: [
+        'punctuation.definition.variable.shell',
+        'source.shell variable.other',
+      ],
+      settings: {
+        foreground: c(Color.Yellow, 1),
+      },
+    },
+    {
+      name: 'Shell Script Interpolated Content',
+      scope: [
+        'string.interpolated.backtick.shell',
+        'string.interpolated.dollar.shell',
+      ],
       settings: {
         foreground: c(Color.Aqua, 1),
       },
     },
+
+    // MAKEFILE
+
     {
-      scope: 'support.function.C99',
-      settings: {
-        foreground: c(Color.Yellow, 1),
-      },
-    },
-    // MAKEFILE ----------------------------------------
-    {
+      name: 'Makefile Prerequisites',
       scope: 'meta.scope.prerequisites',
       settings: {
-        foreground: c(Color.Yellow, 1),
+        foreground: types,
       },
     },
     {
+      name: 'Makefile Function Targets',
       scope: 'entity.name.function.target',
       settings: {
         foreground: c(Color.Green, 1),
         fontStyle: 'bold',
       },
     },
-    // JAVA ----------------------------------------
-    {
-      name: 'coloring of the Java import and package identifiers',
-      scope: ['storage.modifier.import.java', 'storage.modifier.package.java'],
-      settings: {
-        foreground: c(Color.FG, 3),
-      },
-    },
-    {
-      scope: ['keyword.other.import.java', 'keyword.other.package.java'],
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'storage.type.java',
-      settings: {
-        foreground: c(Color.Yellow, 1),
-      },
-    },
-    {
-      scope: 'storage.type.annotation',
-      settings: {
-        foreground: c(Color.Blue, 1),
-        fontStyle: 'bold',
-      },
-    },
-    {
-      scope: 'keyword.other.documentation.javadoc',
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: 'comment.block.javadoc variable.parameter.java',
-      settings: {
-        foreground: c(Color.Green, 1),
-        fontStyle: 'bold',
-      },
-    },
-    {
-      scope: [
-        'source.java variable.other.object',
-        'source.java variable.other.definition.java',
-      ],
-      settings: {
-        foreground: fg,
-      },
-    },
-    // LISP ----------------------------------------
+
+    // Lisp
+
     {
       name: 'Lisp optional function parameters',
       scope: 'meta.function-parameters.lisp',
       settings: {
-        foreground: c(Color.Yellow, 1),
+        foreground: functions,
       },
     },
-    // MARKUP ----------------------------------------
+
+    // Markup
+
     {
       scope: 'markup.underline',
       settings: {
@@ -538,28 +579,28 @@ export const makeTokenColors = (
     {
       scope: 'string.other.link.title.markdown',
       settings: {
-        foreground: c(Color.Gray),
+        foreground: c(Color.Blue, 1),
         fontStyle: 'underline',
       },
     },
     {
       scope: 'markup.underline.link',
       settings: {
-        foreground: c(Color.Purple, 1),
+        foreground: c(Color.Gray),
       },
     },
     {
       scope: 'markup.bold',
       settings: {
         fontStyle: 'bold',
-        foreground: c(Color.Orange, 1),
+        foreground: c(Color.Yellow, 1),
       },
     },
     {
-      scope: 'markup.heading',
+      scope: ['markup.heading', 'entity.name.section'],
       settings: {
         fontStyle: 'bold',
-        foreground: c(Color.Orange, 1),
+        foreground: c(Color.Yellow, 1),
       },
     },
     {
@@ -577,13 +618,13 @@ export const makeTokenColors = (
     {
       scope: 'markup.deleted',
       settings: {
-        foreground: c(Color.Orange),
+        foreground: c(Color.Red),
       },
     },
     {
       scope: 'markup.changed',
       settings: {
-        foreground: c(Color.Orange, 1),
+        foreground: c(Color.Blue, 1),
       },
     },
     {
@@ -604,165 +645,58 @@ export const makeTokenColors = (
         foreground: c(Color.Aqua, 1),
       },
     },
-    // JSON ----------------------------------------
+
+    // Go
+
     {
-      scope: 'string.quoted.double.json',
-      settings: {
-        foreground: c(Color.Blue, 1),
-      },
-    },
-    {
-      name: 'JSON Level 0',
-      scope: [
-        'source.json meta.structure.dictionary.json support.type.property-name.json',
-      ],
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      name: 'JSON Level 1',
-      scope: [
-        'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json',
-      ],
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      name: 'JSON Level 2',
-      scope: [
-        'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json',
-      ],
-      settings: {
-        foreground: c(Color.Purple, 1),
-      },
-    },
-    {
-      name: 'JSON Level 3',
-      scope: [
-        'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json',
-      ],
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    // CSS ----------------------------------------
-    {
-      scope: 'entity.other.attribute-name.css',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: 'source.css meta.selector',
-      settings: {
-        foreground: fg,
-      },
-    },
-    {
-      scope: 'support.type.property-name.css',
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    {
-      scope: 'entity.other.attribute-name.class',
-      settings: {
-        foreground: c(Color.Green, 1),
-      },
-    },
-    {
-      scope: [
-        'source.css support.function.transform',
-        'source.css support.function.timing-function',
-        'source.css support.function.misc',
-      ],
-      settings: {
-        foreground: c(Color.Red, 1),
-      },
-    },
-    {
-      name: 'CSS property value',
-      scope: [
-        'support.property-value',
-        'constant.rgb-value',
-        'support.property-value.scss',
-        'constant.rgb-value.scss',
-      ],
-      settings: {
-        foreground: c(Color.Orange),
-      },
-    },
-    {
-      scope: ['entity.name.tag.css'],
-      settings: {
-        fontStyle: 'normal',
-      },
-    },
-    // HTML / XML ----------------------------------------
-    {
-      scope: ['punctuation.definition.tag'],
-      settings: {
-        foreground: c(Color.Blue, 1),
-      },
-    },
-    {
-      scope: ['text.html entity.name.tag', 'text.html punctuation.tag'],
-      settings: {
-        foreground: c(Color.Aqua, 1),
-        fontStyle: 'bold',
-      },
-    },
-    // javascript ---------------------------------------
-    {
-      scope: ['source.js variable.language'],
-      settings: {
-        foreground: c(Color.Orange, 1),
-      },
-    },
-    // golang --------------------------------------------
-    {
-      scope: ['source.go storage.type'],
-      settings: {
-        foreground: c(Color.Yellow, 1),
-      },
-    },
-    {
+      name: 'Go Import Names',
       scope: ['source.go entity.name.import'],
       settings: {
-        foreground: c(Color.Green, 1),
+        foreground: strings,
       },
     },
     {
-      scope: ['source.go keyword.package', 'source.go keyword.import'],
-      settings: {
-        foreground: c(Color.Aqua, 1),
-      },
-    },
-    {
-      scope: ['source.go keyword.interface', 'source.go keyword.struct'],
-      settings: {
-        foreground: c(Color.Blue, 1),
-      },
-    },
-    {
+      name: 'Go Entity Names Override',
       scope: ['source.go entity.name.type'],
       settings: {
         foreground: fg,
       },
     },
+
+    // Cucumber
+
     {
-      scope: ['source.go entity.name.function'],
-      settings: {
-        foreground: c(Color.Purple, 1),
-      },
-    },
-    // cucumber
-    {
+      name: 'Cucumber Table Keywords',
       scope: ['keyword.control.cucumber.table'],
       settings: {
         foreground: c(Color.Blue, 1),
+      },
+    },
+
+    // PHP
+
+    {
+      name: 'PHP Metatags',
+      scope: 'metatag.php',
+      settings: {
+        foreground: c(Color.Orange, 1),
+      },
+    },
+
+    // Git
+
+    {
+      name: 'Git Rebase Function Header',
+      scope: 'support.function.git-rebase',
+      settings: {
+        foreground: c(Color.Aqua),
+      },
+    },
+    {
+      name: 'Git Rebase SHA Header',
+      scope: 'constant.sha.git-rebase',
+      settings: {
+        foreground: c(Color.Green, 1),
       },
     },
   ]

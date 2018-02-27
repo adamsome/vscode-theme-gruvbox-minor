@@ -70,9 +70,10 @@
     ]
   },
   "scripts": {
-    "build": "mkdir -p ./themes && ./node_modules/.bin/tsc -p .",
-    "make": "node build/build.js",
-    "start": "npm run build && npm run make"
+    "build": "npm run build:builder && npm run build:themes",
+    "build:builder": "./node_modules/.bin/tsc -p .",
+    "build:themes": "mkdir -p ./themes && node build/build.js",
+    "start": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^9.4.6",

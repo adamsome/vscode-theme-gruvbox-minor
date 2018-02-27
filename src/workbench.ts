@@ -10,6 +10,7 @@ export default (c: (color: Color, lightness?: number) => string) => {
   const border = c(Color.BG, 1)
   // Foreground
   const fg = c(Color.Gray)
+  const fgHard = c(Color.FG, 3)
   const fgHint = c(Color.BG, 2)
   const fgSubtle = c(Color.BG, 3)
   // General UI
@@ -79,14 +80,14 @@ export default (c: (color: Color, lightness?: number) => string) => {
     // Progress Bars
     'progressBar.background': highlight,
     // Lists
-    'list.activeSelectionBackground': opacity(50, bgSoft),
-    'list.activeSelectionForeground': highlightHard,
-    'list.hoverBackground': opacity(50, bgSoft),
+    'list.activeSelectionBackground': highlight,
+    'list.activeSelectionForeground': bg,
+    'list.inactiveSelectionBackground': opacity(50, bgSoft),
+    'list.inactiveSelectionForeground': fgHard,
+    'list.hoverBackground': opacity(25, bgSoft),
     'list.hoverForeground': fg,
     'list.focusBackground': bgSoft,
     'list.focusForeground': fg,
-    'list.inactiveSelectionForeground': highlight,
-    'list.inactiveSelectionBackground': transparent,
     'list.dropBackground': bgSoft,
     'list.highlightForeground': highlight,
     // Side Bar

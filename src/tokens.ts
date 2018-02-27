@@ -554,6 +554,15 @@ export default (
         foreground: fg,
       },
     },
+    {
+      name: 'Variable Aliasing, Reset inside export default',
+      scope: [
+        'meta.export.default variable.other.readwrite',
+      ],
+      settings: {
+        foreground: fg,
+      },
+    },
 
     // Serialized (JSON, YAML, etc.)
 

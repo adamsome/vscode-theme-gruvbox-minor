@@ -32,7 +32,7 @@ export default (
   const imports = keywords
   // Functions
   const functions = c(Color.Blue, 1)
-  const functionParameters = fg
+  const functionParameters = c(Color.Aqua, 1)
   const decorators = functions
   // Types
   const types = c(Color.Yellow, 1)
@@ -493,6 +493,8 @@ export default (
         'meta.decorator variable.other.readwrite',
         'meta.decorator variable.other.property',
         'meta.decorator variable.other.object',
+        // Decorator parenthesis
+        'meta.decorator meta.brace.round',
       ],
       settings: {
         foreground: decorators,
@@ -506,7 +508,6 @@ export default (
       scope: [
         'meta.parameter.type.variable',
         'support.variable',
-        'variable.parameter',
         'variable.name',
         'variable.other',
         'variable',
@@ -556,9 +557,7 @@ export default (
     },
     {
       name: 'Variable Aliasing, Reset inside export default',
-      scope: [
-        'meta.export.default variable.other.readwrite',
-      ],
+      scope: ['meta.export.default variable.other.readwrite'],
       settings: {
         foreground: fg,
       },

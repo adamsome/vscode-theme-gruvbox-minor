@@ -70,8 +70,8 @@
     ]
   },
   "scripts": {
-    "build": "./node_modules/.bin/tsc -p .",
-    "make": "node build/index.js",
+    "build": "mkdir -p ./themes && ./node_modules/.bin/tsc -p .",
+    "make": "node build/build.js",
     "start": "npm run build && npm run make"
   },
   "devDependencies": {

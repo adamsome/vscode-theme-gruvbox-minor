@@ -1,9 +1,7 @@
-import { Color } from '../models'
-import { opacity } from '../util'
+import { Color } from './models'
+import { opacity } from './util'
 
-export const makeWorkbenchColors = (
-  c: (color: Color, lightness?: number) => string,
-) => {
+export default (c: (color: Color, lightness?: number) => string) => {
   // Background
   const bg = c(Color.BG)
   const bgSoft = c(Color.BG, 1)

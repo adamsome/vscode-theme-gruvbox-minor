@@ -1,4 +1,5 @@
 build/
+themes/
 
 node_modules/
 *.log

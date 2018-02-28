@@ -493,8 +493,6 @@ export default (
         'meta.decorator variable.other.readwrite',
         'meta.decorator variable.other.property',
         'meta.decorator variable.other.object',
-        // Decorator parenthesis
-        'meta.decorator meta.brace.round',
       ],
       settings: {
         foreground: decorators,

@@ -10,6 +10,7 @@
     "eximus (https://github.com/3ximus)"
   ],
   "publisher": "adamsome",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.19.0"
   },

@@ -2,7 +2,8 @@
 
 ## 2.0.0
 
-* add theme generator program to automatically make all themes at once
+* major theme color changes
+* add theme generator program to automatically build all themes at once
 
 ## 1.3.2
 

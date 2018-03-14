@@ -1,22 +1,15 @@
 # Gruvbox Minor
 
-A Visual Studio Code theme based off of the original
+A functional Visual Studio Code theme based off of the original
 [gruvbox](https://github.com/morhetz/gruvbox) theme and the
 Visual Studio Code
 [Gruvbox Theme](https://github.com/jdinhify/vscode-theme-gruvbox).
+Contains a dark and light mode as well as three sub-modes each,
+hard, medium, and soft.
 
-## Variants
+## Screenshot
 
-* Dark Medium
-* Dark Hard
-* Dark Soft
-* Light Medium
-* Light Hard
-* Light Soft
-
-## Screenshots
-
-![screenshots](images/screenshots.jpg)
+![screenshot](images/screenshot.png)
 
 ## PRs are welcomed
 
@@ -31,10 +24,10 @@ Visual Studio Code
 
 Customizations and tweaks can be made to all six themes at once by:
 
-1. Saving the customizations in [tokens](src/theme/tokens) for syntax change,
-   and/or [workbench](src/theme/workbench) for editor chrome changes,
-2. Running `npm start`, which builds the TypeScript files and launches a
-   program that regenerates the six theme files.
+1.  Saving the customizations in [tokens](src/theme/tokens) for syntax change,
+    and/or [workbench](src/theme/workbench) for editor chrome changes,
+2.  Running `npm start`, which builds the TypeScript files and launches a
+    program that regenerates the six theme files.
 
 ## Thank Yous
 

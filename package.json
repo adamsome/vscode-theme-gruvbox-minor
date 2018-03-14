@@ -1,28 +1,37 @@
 {
   "name": "vscode-theme-gruvbox-minor",
-  "displayName": "Gruvbox Minor",
-  "description": "Gruvbox Minor",
   "version": "2.0.0",
+  "displayName": "Gruvbox Minor",
+  "homepage": "https://github.com/adamsome/vscode-theme-gruvbox-minor",
+  "description": "Gruvbox Minor",
+  "publisher": "adamsome",
   "author": "adamsome (https://github.com/adamsome)",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:compile && npm run build:themes",
+    "build:compile": "./node_modules/.bin/tsc -p .",
+    "build:themes": "mkdir -p ./themes && node build/build.js",
+    "start": "npm run build",
+    "vscode:prepublish": "npm run build"
+  },
+  "maintainers": ["adamsome (https://github.com/adamsome)"],
   "contributors": [
     "adamsome (https://github.com/adamsome)",
     "jdinhify (https://github.com/jdinhify)",
     "eximus (https://github.com/3ximus)"
   ],
-  "publisher": "adamsome",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamsome/vscode-theme-gruvbox-minor.git"
+  },
   "engines": {
     "vscode": "^1.19.0"
   },
   "categories": ["Themes"],
+  "keywords": ["gruvbox-minor", "gruvbox", "theme", "color-theme"],
   "galleryBanner": {
     "color": "#3c3836",
     "theme": "dark"
-  },
-  "homepage": "https://github.com/adamsome/vscode-theme-gruvbox-minor",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/adamsome/vscode-theme-gruvbox-minor.git"
   },
   "contributes": {
     "themes": [
@@ -69,12 +78,6 @@
         "make": true
       }
     ]
-  },
-  "scripts": {
-    "build": "npm run build:builder && npm run build:themes",
-    "build:builder": "./node_modules/.bin/tsc -p .",
-    "build:themes": "mkdir -p ./themes && node build/build.js",
-    "start": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^9.4.6",

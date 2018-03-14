@@ -124,6 +124,7 @@ export default (c: (color: Color, lightness?: number) => string) => {
     'editor.background': bg,
     'editor.foreground': fg,
     'editorLineNumber.foreground': fgHint,
+    'editorActiveLineNumber.foreground': cursor,
     'editorCursor.foreground': cursor,
     'editorCursor.background': bg,
     'editor.selectionBackground': opacity(25, selection),

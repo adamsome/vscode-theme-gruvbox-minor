@@ -1,6 +1,6 @@
 {
   "name": "vscode-theme-gruvbox-minor",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "displayName": "Gruvbox Minor",
   "homepage": "https://github.com/adamsome/vscode-theme-gruvbox-minor",
   "description": "Gruvbox Minor",
@@ -29,9 +29,9 @@
   },
   "categories": ["Themes"],
   "keywords": ["gruvbox-minor", "gruvbox", "theme", "color-theme"],
-  "icon": "images/icon.png",
+  "icon": "images/logo.png",
   "galleryBanner": {
-    "color": "#3c3836",
+    "color": "#32302f",
     "theme": "dark"
   },
   "contributes": {

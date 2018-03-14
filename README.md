@@ -1,5 +1,7 @@
 # Gruvbox Minor
 
+![screenshot](images/logo.png)
+
 A functional Visual Studio Code theme based off of the original
 [gruvbox](https://github.com/morhetz/gruvbox) theme and the
 Visual Studio Code

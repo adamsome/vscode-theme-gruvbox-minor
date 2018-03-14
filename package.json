@@ -29,6 +29,7 @@
   },
   "categories": ["Themes"],
   "keywords": ["gruvbox-minor", "gruvbox", "theme", "color-theme"],
+  "icon": "images/icon.png",
   "galleryBanner": {
     "color": "#3c3836",
     "theme": "dark"

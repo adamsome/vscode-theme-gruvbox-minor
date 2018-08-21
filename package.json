@@ -1,6 +1,6 @@
 {
   "name": "vscode-theme-gruvbox-minor",
-  "version": "2.0.3",
+  "version": "2.1.1",
   "displayName": "Gruvbox Minor",
   "homepage": "https://github.com/adamsome/vscode-theme-gruvbox-minor",
   "description": "Gruvbox Minor",
@@ -14,7 +14,9 @@
     "start": "npm run build",
     "vscode:prepublish": "npm run build"
   },
-  "maintainers": ["adamsome (https://github.com/adamsome)"],
+  "maintainers": [
+    "adamsome (https://github.com/adamsome)"
+  ],
   "contributors": [
     "adamsome (https://github.com/adamsome)",
     "jdinhify (https://github.com/jdinhify)",
@@ -27,8 +29,15 @@
   "engines": {
     "vscode": "^1.19.0"
   },
-  "categories": ["Themes"],
-  "keywords": ["gruvbox-minor", "gruvbox", "theme", "color-theme"],
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "gruvbox-minor",
+    "gruvbox",
+    "theme",
+    "color-theme"
+  ],
   "icon": "logo.png",
   "galleryBanner": {
     "color": "#32302f",

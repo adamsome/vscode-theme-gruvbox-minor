@@ -268,6 +268,19 @@ export default (c: (color: Color, lightness?: number) => string) => {
     'breadcrumb.focusForeground': fgHard,
     'breadcrumb.activeSelectionForegraph': opacity(50, bgSoft),
     'breadcrumbPicker.background': bg,
+    // Settings
+    'settings.headerForeground': fgHard,
+    'settings.modifiedItemForeground': primary,
+    'settings.inactiveSelectedItemBorder': bgSoft,
+    // Menu
+    'menu.background': bg,
+    'menu.foreground': fg,
+    'menu.selectionBackground': primary,
+    'menu.selectionForeground': bg,
+    'menu.selectionBorder': primary,
+    'menubar.selectionBackground': primary,
+    'menubar.selectionForeground': bg,
+    'menubar.selectionBorder': primary,
     // Misc
     'textLink.foreground': links,
     'textLink.activeForeground': linksSoft,

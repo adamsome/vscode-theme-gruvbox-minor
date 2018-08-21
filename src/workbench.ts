@@ -7,12 +7,15 @@ export default (c: (color: Color, lightness?: number) => string) => {
   const bgSoft = c(Color.BG, 1)
   const bgSofter = c(Color.BG, 2)
   const transparent = opacity(0, c(Color.BG))
-  const border = c(Color.BG, 1)
   // Foreground
   const fg = c(Color.Gray)
   const fgHard = c(Color.FG, 3)
   const fgHint = c(Color.BG, 2)
   const fgSubtle = c(Color.BG, 3)
+  // Border
+  const border = c(Color.BG, 1)
+  const borderSubtle = opacity(30, fgHint)
+  const borderHint = opacity(20, fgHint)
   // General UI
   const primary = c(Color.Yellow, 1)
   const highlight = c(Color.Yellow)
@@ -93,7 +96,7 @@ export default (c: (color: Color, lightness?: number) => string) => {
     // Side Bar
     'sideBar.background': bg,
     'sideBar.foreground': fg,
-    'sideBar.border': transparent,
+    'sideBar.border': borderSubtle,
     'sideBarTitle.foreground': fg,
     'sideBarSectionHeader.background': transparent,
     'sideBarSectionHeader.foreground': fg,
@@ -106,17 +109,17 @@ export default (c: (color: Color, lightness?: number) => string) => {
     'activityBarBadge.foreground': bg,
     // Editor Groups
     'editorGroup.background': bgSoft,
-    'editorGroup.border': transparent,
+    'editorGroup.border': borderSubtle,
     'editorGroup.dropBackground': opacity(37.5, bgSoft),
     'editorGroup.noTabsBackground': bgSoft,
     'editorGroup.tabsbackground': bgSoft,
-    'editorGroup.tabsBorder': opacity(0, bgSoft),
+    'editorGroup.tabsBorder': borderSubtle,
     // Tabs
-    'tab.border': transparent,
+    'tab.border': bg,
     'tab.activeBorder': bg,
     'tab.activeForeground': fgHard,
     'tab.inactiveForeground': fg,
-    'tab.inactiveBackground': opacity(37.5, bgSoft),
+    'tab.inactiveBackground': opacity(50, bgSoft),
     'tab.unfocusedActiveForeground': fg,
     'tab.unfocusedActiveBorder': transparent,
     'tab.unfocusedInactiveForeground': fgSubtle,
@@ -136,10 +139,10 @@ export default (c: (color: Color, lightness?: number) => string) => {
     'editor.findMatchHighlightBackground': opacity(30, findMatch),
     'editor.findRangeHighlightBackground': opacity(15, findMatch),
     'editor.lineHighlightBackground': opacity(37.5, bgSoft),
-    'editor.lineHighlightBorder': opacity(0, bgSoft),
-    'editorWhitespace.foreground': opacity(12.5, fgSubtle),
-    'editorIndentGuide.background': opacity(12.5, fgHint),
-    'editorRuler.foreground': opacity(12.5, fgHint),
+    'editor.lineHighlightBorder': transparent,
+    'editorWhitespace.foreground': opacity(15, fgSubtle),
+    'editorIndentGuide.background': borderHint,
+    'editorRuler.foreground': borderHint,
     'editorCodeLens.foreground': opacity(56.25, fgSubtle),
     'editorBracketMatch.border': transparent,
     'editorBracketMatch.background': opacity(50, fg),
@@ -170,9 +173,9 @@ export default (c: (color: Color, lightness?: number) => string) => {
     'editorLink.activeForeground': fg,
     // Diff Editors
     'diffEditor.insertedTextBackground': opacity(18.75, added),
-    'diffEditor.insertedTextBorder': opacity(0, addedSoft),
+    'diffEditor.insertedTextBorder': transparent,
     'diffEditor.removedTextBackground': opacity(18.75, deleted),
-    'diffEditor.removedTextBorder': opacity(0, deletedSoft),
+    'diffEditor.removedTextBorder': transparent,
     // Widgets
     'editorWidget.background': bg,
     'editorWidget.border': border,
@@ -203,14 +206,14 @@ export default (c: (color: Color, lightness?: number) => string) => {
     'editorOverviewRuler.incomingContentForeground': mergeIncoming,
     'editorOverviewRuler.commonContentForeground': mergeCommon,
     // Panels
-    'panel.border': transparent,
+    'panel.border': borderSubtle,
     'panelTitle.activeForeground': fg,
     // Status Bar
     'statusBar.background': bg,
     'statusBar.foreground': fg,
     'statusBar.debuggingBackground': primary,
     'statusBar.debuggingForeground': bg,
-    'statusBar.debuggingBorder': transparent,
+    'statusBar.debuggingBorder': borderSubtle,
     'statusBar.noFolderBackground': bg,
     'statusBar.noFolderBorder': transparent,
     'statusBar.prominentBackground': highlight,

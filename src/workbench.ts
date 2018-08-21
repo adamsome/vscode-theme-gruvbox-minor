@@ -114,12 +114,12 @@ export default (c: (color: Color, lightness?: number) => string) => {
     // Tabs
     'tab.border': transparent,
     'tab.activeBorder': bg,
-    'tab.activeForeground': fg,
-    'tab.inactiveForeground': fgSubtle,
+    'tab.activeForeground': fgHard,
+    'tab.inactiveForeground': fg,
     'tab.inactiveBackground': opacity(37.5, bgSoft),
-    'tab.unfocusedActiveForeground': fgSubtle,
+    'tab.unfocusedActiveForeground': fg,
     'tab.unfocusedActiveBorder': transparent,
-    'tab.unfocusedInactiveForeground': fgHint,
+    'tab.unfocusedInactiveForeground': fgSubtle,
     // Editors
     'editor.background': bg,
     'editor.foreground': fg,
@@ -260,6 +260,11 @@ export default (c: (color: Color, lightness?: number) => string) => {
     'extensionButton.prominentForeground': bg,
     'extensionButton.prominentBackground': opacity(100, primary),
     'extensionButton.prominentHoverBackground': opacity(75, primary),
+    // Breadcrumbs
+    'breadcrumb.foreground': fg,
+    'breadcrumb.focusForeground': fgHard,
+    'breadcrumb.activeSelectionForegraph': opacity(50, bgSoft),
+    'breadcrumbPicker.background': bg,
     // Misc
     'textLink.foreground': links,
     'textLink.activeForeground': linksSoft,

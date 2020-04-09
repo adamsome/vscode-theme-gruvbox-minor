@@ -2,7 +2,7 @@ import { Color, WorkbenchColors } from './models'
 import { opacity } from './util'
 
 export default (
-  c: (color: Color, lightness?: number) => string,
+  c: (color: Color, lightness?: number) => string
 ): WorkbenchColors => {
   // Background
   const bg = c(Color.BG)
@@ -111,6 +111,9 @@ export default (
     'activityBarBadge.foreground': bg,
     // Editor Groups
     'editorGroup.background': bgSoft,
+    'editorGroup.emptyBackground': bgSoft,
+    'editorGroupHeader.noTabsBackground': bgSoft,
+    'editorGroupHeader.tabsBackground': bgSoft,
     'editorGroup.border': borderSubtle,
     'editorGroup.dropBackground': opacity(37.5, bgSoft),
     'editorGroup.noTabsBackground': bgSoft,
@@ -129,7 +132,7 @@ export default (
     'editor.background': bg,
     'editor.foreground': fg,
     'editorLineNumber.foreground': fgHint,
-    'editorActiveLineNumber.foreground': cursor,
+    'editorLineNumber.activeForeground': cursor,
     'editorCursor.foreground': cursor,
     'editorCursor.background': bg,
     'editor.selectionBackground': opacity(25, selection),
@@ -157,7 +160,7 @@ export default (
     'editorOverviewRuler.wordHighlightForeground': opacity(40, highlightWord),
     'editorOverviewRuler.wordHighlightStrongForeground': opacity(
       60,
-      highlightWord,
+      highlightWord
     ),
     'editorOverviewRuler.modifiedForeground': changed,
     'editorOverviewRuler.addedForeground': changed,

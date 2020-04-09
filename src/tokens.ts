@@ -3,7 +3,6 @@ import { Color, TokenColor } from './models'
 export default (
   c: (color: Color, lightness?: number) => string
 ): TokenColor[] => {
-  const bg = c(Color.BG)
   const fg = c(Color.FG, 1)
   const fgSubtle = c(Color.FG, 3)
   const headers = c(Color.Yellow, 1)
@@ -65,7 +64,6 @@ export default (
       name: 'Text',
       scope: ['source', 'text.html'],
       settings: {
-        background: bg,
         foreground: fg,
       },
     },
@@ -644,7 +642,6 @@ export default (
       scope: 'tag.close entity.name.tag',
       settings: {
         foreground: tagsClose,
-        fontStyle: 'normal',
       },
     },
     {

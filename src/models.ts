@@ -24,11 +24,10 @@ export interface WorkbenchColors {
   [selector: string]: string
 }
 
-export type FontStyle = 'normal' | 'bold' | 'italic' | 'underline'
+export type FontStyle = 'bold' | 'italic' | 'underline'
 
 export interface TokenSettings {
   foreground?: string
-  background?: string
   fontStyle?: FontStyle
 }
 

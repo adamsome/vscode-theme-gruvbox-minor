@@ -9,9 +9,10 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run build:compile && npm run build:themes",
-    "build:compile": "./node_modules/.bin/tsc -p .",
+    "build:compile": "tsc -p .",
     "build:themes": "mkdir -p ./themes && node build/build.js",
     "start": "npm run build",
+    "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,tsx}' --quiet --fix",
     "vscode:prepublish": "npm run build"
   },
   "maintainers": [
@@ -89,6 +90,17 @@
       }
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "@types/node": "^13.11.1",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
@@ -96,6 +108,8 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.3",
     "prettier": "^2.0.4",
     "typescript": "^3.8.3"
   }

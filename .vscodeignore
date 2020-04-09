@@ -3,7 +3,7 @@
 .gitignore
 
 build/
-themes/
 src/
 node_modules/
 *.log
+*.code-workspace

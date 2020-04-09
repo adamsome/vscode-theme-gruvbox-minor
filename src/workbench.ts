@@ -110,10 +110,9 @@ export default (
     'activityBarBadge.background': primary,
     'activityBarBadge.foreground': bg,
     // Editor Groups
-    'editorGroup.background': bgSoft,
-    'editorGroup.emptyBackground': bgSoft,
-    'editorGroupHeader.noTabsBackground': bgSoft,
-    'editorGroupHeader.tabsBackground': bgSoft,
+    'editorGroup.emptyBackground': bg,
+    'editorGroupHeader.noTabsBackground': bg,
+    'editorGroupHeader.tabsBackground': bg,
     'editorGroup.border': borderSubtle,
     'editorGroup.dropBackground': opacity(37.5, bgSoft),
     'editorGroup.noTabsBackground': bgSoft,

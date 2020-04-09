@@ -42,6 +42,7 @@ export interface Theme {
   type: Type
   colors: WorkbenchColors
   tokenColors: TokenColor[]
+  semanticHighlighting: boolean
 }
 
 export enum UITheme {

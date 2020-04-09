@@ -18,7 +18,13 @@ if (pkg && pkg.contributes && pkg.contributes.themes) {
     const colorBuilder = makeColors(type, t.subtype || Subtype.Medium)
     const colors = WorkbenchConfig(colorBuilder)
     const tokenColors = TokensConfig(colorBuilder)
-    const theme: Theme = { name: t.label, type, colors, tokenColors }
+    const theme: Theme = {
+      name: t.label,
+      type,
+      semanticHighlighting: true,
+      colors,
+      tokenColors,
+    }
 
     // Exceptions to the Light is the inverse of Dark rule
     if (type === Type.Light) {

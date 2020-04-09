@@ -31,14 +31,13 @@ export default (
   const imports = keywords
   // Functions
   const functions = c(Color.Blue, 1)
-  const functionParameters = c(Color.Aqua, 1)
-  const decorators = functions
   // Types
-  const types = c(Color.Yellow, 1)
-  const typesThis = types
+  const thisKeyword = c(Color.Yellow, 1)
+  const interfaces = c(Color.Yellow, 1)
+  const classes = c(Color.Aqua, 1)
+  const decorators = c(Color.Aqua, 1)
   // Variables
   const variables = fg
-  const variablesConstant = numbers
   // HTML
   const tags = c(Color.Aqua, 1)
   const tagsClose = c(Color.Aqua)
@@ -166,7 +165,6 @@ export default (
         'constant',
         'constant.numeric',
         'constant.language',
-        'constant.other',
         'support.constant',
         'meta.preprocessor.numeric',
         'keyword.other.unit',
@@ -280,8 +278,60 @@ export default (
     {
       name: 'Types declaration and references',
       scope: [
-        'entity.name',
+        'entity.name.type.class',
         'support.class',
+        // Swift
+        'keyword.primitive-datatypes.swift',
+        'storage.type.attribute.swift',
+        // ObjC
+        'storage.type.objc',
+        'meta.protocol-list.objc',
+        'meta.return-type.objc',
+        // Go
+        'source.go storage.type',
+        'keyword.struct.go',
+        'keyword.interface.go',
+        // C
+        'storage.type.c',
+        // C#
+        'keyword.type.cs',
+        'storage.type.cs',
+        'storage.type.generic.cs',
+        'storage.type.modifier.cs',
+        'storage.type.variable.cs',
+        // Groovy
+        'storage.type.groovy',
+        'source.groovy storage.type',
+        // PHP
+        'storage.type.php',
+        // Haskell
+        'storage.type.haskell',
+        // OCaml
+        'storage.type.ocaml',
+        // Java
+        'source.java storage.type',
+        // Rust
+        'storage.type.core.rust',
+        'storage.class.std.rust',
+        // Powershell
+        'source.powershell entity.other.attribute-name',
+        // TypeScript
+        'meta.type.cast.expr',
+        'meta.type.new.expr',
+        'support.constant.math',
+        'support.constant.dom',
+        'support.constant.json',
+        'entity.other.inherited-class',
+      ],
+      settings: {
+        foreground: classes,
+      },
+    },
+    {
+      name: 'Interfaces',
+      scope: [
+        'entity.name.type.interface',
+        'support.interface',
         'support.type',
         'meta.return-type',
         'meta.return.type',
@@ -332,7 +382,7 @@ export default (
         'entity.other.inherited-class',
       ],
       settings: {
-        foreground: types,
+        foreground: interfaces,
       },
     },
     {
@@ -348,9 +398,10 @@ export default (
         'keyword.expressions-and-types.swift',
       ],
       settings: {
-        foreground: typesThis,
+        foreground: thisKeyword,
       },
     },
+
     // Keywords
 
     {
@@ -429,7 +480,7 @@ export default (
         'variable.language.wildcard.java',
       ],
       settings: {
-        foreground: types,
+        foreground: classes,
       },
     },
 
@@ -479,7 +530,7 @@ export default (
         'meta.at-rule.mixin variable',
       ],
       settings: {
-        foreground: functionParameters,
+        foreground: variables,
       },
     },
     {
@@ -516,13 +567,6 @@ export default (
       ],
       settings: {
         foreground: variables,
-      },
-    },
-    {
-      name: 'Variable Constants',
-      scope: ['variable.other.constant'],
-      settings: {
-        foreground: variablesConstant,
       },
     },
     {
@@ -717,7 +761,7 @@ export default (
       name: 'GraphQL fragment',
       scope: ['source.shell support.function.builtin'],
       settings: {
-        foreground: types,
+        foreground: classes,
       },
     },
 
@@ -737,7 +781,7 @@ export default (
         'source.shell variable.other',
       ],
       settings: {
-        foreground: types,
+        foreground: classes,
       },
     },
     {
@@ -768,7 +812,7 @@ export default (
       name: 'Makefile Prerequisites',
       scope: 'meta.scope.prerequisites',
       settings: {
-        foreground: types,
+        foreground: classes,
       },
     },
     {

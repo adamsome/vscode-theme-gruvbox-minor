@@ -150,7 +150,7 @@ export default (
     'editorCodeLens.foreground': opacity(56.25, fgSubtle),
     'editorBracketMatch.border': transparent,
     'editorBracketMatch.background': opacity(50, fg),
-    'editorHoverWidget.background': opacity(80, bgSoft),
+    'editorHoverWidget.background': bgSoft,
     'editorHoverWidget.border': border,
     'editorOverviewRuler.border': transparent,
     'editorOverviewRuler.findMatchForeground': opacity(30, findMatch),

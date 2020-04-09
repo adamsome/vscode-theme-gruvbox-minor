@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.2.2
+
+- change editor hover to opaque background ([#4](https://github.com/adamsome/vscode-theme-gruvbox-minor/issues/4))
+
+## 2.2.1
+
+- fix issue where theme files not published
+
+## 2.2.0
+
+- enable semantic highlighting support
+
 ## 2.1.0
 
 - increase border contrast

@@ -1,7 +1,7 @@
 import { Color, TokenColor } from './models'
 
 export default (
-  c: (color: Color, lightness?: number) => string,
+  c: (color: Color, lightness?: number) => string
 ): TokenColor[] => {
   const bg = c(Color.BG)
   const fg = c(Color.FG, 1)

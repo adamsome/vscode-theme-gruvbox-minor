@@ -8,11 +8,11 @@ console.log('Reading theme definitions from package.json')
 
 const pkg: PackageDef = readJson('./package.json')
 if (pkg && pkg.contributes && pkg.contributes.themes) {
-  const themesToMake = pkg.contributes.themes.filter(t => t.make === true)
+  const themesToMake = pkg.contributes.themes.filter((t) => t.make === true)
   if (!themesToMake.length) {
     console.warn('No themes defined to make in package.json.')
   }
-  themesToMake.map(t => {
+  themesToMake.map((t) => {
     console.log(`Writing ${t.label} to '${t.path}'`)
     const type = t.uiTheme === UITheme.Light ? Type.Light : Type.Dark
     const colorBuilder = makeColors(type, t.subtype || Subtype.Medium)

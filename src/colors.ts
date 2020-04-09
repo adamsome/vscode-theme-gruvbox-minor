@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { Color, Subtype, Type } from './models'
 
 // prettier-ignore
@@ -43,17 +44,34 @@ export const NAMED = {
   faded_orange   : '#af3a03', // 130, 175-58-3
 }
 
-export const makeColors = (type: Type, subtype: Subtype) => (
-  color: Color,
-  lightness?: number,
-) => {
-  const c = MAP[type][subtype][color]
-  return lightness === undefined || lightness < 0
-    ? c[0]
-    : lightness >= c.length ? c[c.length - 1] : c[lightness]
+const getBG0 = (type: Type, subtype: Subtype): string => {
+  switch (type) {
+    case Type.Light: {
+      switch (subtype) {
+        case Subtype.Hard:
+          return NAMED.light0_hard
+        case Subtype.Soft:
+          return NAMED.light0_soft
+        case Subtype.Medium:
+        default:
+          return NAMED.light0
+      }
+    }
+    case Type.Dark:
+    default: {
+      switch (subtype) {
+        case Subtype.Hard:
+          return NAMED.dark0_hard
+        case Subtype.Soft:
+          return NAMED.dark0_soft
+        case Subtype.Medium:
+        default:
+          return NAMED.dark0
+      }
+    }
+  }
 }
-
-const getDark = (subtype: Subtype) => ({
+const getDark = (subtype: Subtype): Record<Color, string[]> => ({
   bg: [
     getBG0(Type.Dark, subtype),
     NAMED.dark1,
@@ -91,34 +109,6 @@ const getLight = (subtype: Subtype): Record<Color, string[]> => ({
   orange: [NAMED.neutral_orange, NAMED.faded_orange],
 })
 
-const getBG0 = (type: Type, subtype: Subtype) => {
-  switch (type) {
-    case Type.Light: {
-      switch (subtype) {
-        case Subtype.Hard:
-          return NAMED.light0_hard
-        case Subtype.Soft:
-          return NAMED.light0_soft
-        case Subtype.Medium:
-        default:
-          return NAMED.light0
-      }
-    }
-    case Type.Dark:
-    default: {
-      switch (subtype) {
-        case Subtype.Hard:
-          return NAMED.dark0_hard
-        case Subtype.Soft:
-          return NAMED.dark0_soft
-        case Subtype.Medium:
-        default:
-          return NAMED.dark0
-      }
-    }
-  }
-}
-
 export const MAP: Record<Type, Record<Subtype, Record<Color, string[]>>> = {
   dark: {
     hard: getDark(Subtype.Hard),
@@ -130,4 +120,15 @@ export const MAP: Record<Type, Record<Subtype, Record<Color, string[]>>> = {
     medium: getLight(Subtype.Medium),
     soft: getLight(Subtype.Soft),
   },
+}
+export const makeColors = (type: Type, subtype: Subtype) => (
+  color: Color,
+  lightness?: number
+): string => {
+  const c = MAP[type][subtype][color]
+  return lightness === undefined || lightness < 0
+    ? c[0]
+    : lightness >= c.length
+    ? c[c.length - 1]
+    : c[lightness]
 }

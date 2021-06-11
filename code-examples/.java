@@ -96,4 +96,11 @@ public class Resources {
 		}
 	}
 
+  public class TestClass() {
+    Signature sig
+
+    contructor() {
+      this.sig = Signature.getInstance("SHA1WithRSA")
+    }
+  }
 }

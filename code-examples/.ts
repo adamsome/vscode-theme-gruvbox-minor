@@ -42,12 +42,10 @@ export class ComputeService {
       }),
     }
     log.post(url, body)
-    return this.http
-      .post<AddReportResponse>(url, body, opts)
-      .pipe(
-        map(res => ComputeService.handleComputeResponse(res.jobInfo)),
-        catchError(handleError('Add Report', errorRes)),
-      )
+    return this.http.post<AddReportResponse>(url, body, opts).pipe(
+      map((res) => ComputeService.handleComputeResponse(res.jobInfo)),
+      catchError(handleError('Add Report', errorRes))
+    )
   }
 
   compute(config: ComputeConfig): Observable<ComputeResult> {
@@ -64,7 +62,7 @@ export class ComputeService {
       .post(COMPUTE_SYNC_URL, body, opts)
       .pipe(
         map(ComputeService.handleComputeResponse),
-        catchError(handleError('Compute', errorRes)),
+        catchError(handleError('Compute', errorRes))
       )
   }
 
@@ -121,14 +119,13 @@ export class ComputeService {
       dataframeType: toExternalDataframeType(cfg.outputType!),
       computeContainer: cfg.computeContainer!,
       environment: cfg.environment!,
-      equipId: cfg.equipID,
     }
   }
 
   static toComputeRequestParams(
-    options: KVPList = [],
+    options: KVPList = []
   ): ComputeRequestParameter[] {
-    return options.map(o => {
+    return options.map((o) => {
       return {
         key: o.name,
         value: [o.value],

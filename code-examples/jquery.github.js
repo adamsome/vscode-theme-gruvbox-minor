@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-this-alias */
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 // -- Github Repository --------------------------------------------------------
 
 function GithubRepo(repo) {
@@ -11,7 +15,7 @@ function GithubRepo(repo) {
 }
 
 // Parses HTML template
-GithubRepo.prototype.toHTML = function() {
+GithubRepo.prototype.toHTML = function () {
   this.pushed_at = this._parsePushedDate(this.pushed_at)
 
   return $(
@@ -57,12 +61,12 @@ GithubRepo.prototype.toHTML = function() {
       this.url +
       "/zipball/master'></a>" +
       '</div>' +
-      '</div>',
+      '</div>'
   )
 }
 
 // Parses pushed_at with date format
-GithubRepo.prototype._parsePushedDate = function(pushed_at) {
+GithubRepo.prototype._parsePushedDate = (pushed_at) => {
   var date = new Date(pushed_at)
 
   return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
@@ -86,10 +90,15 @@ function Github(element, options) {
   this._defaults = defaults
 
   this.init()
+
+  const x = /\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i
+  const y = /--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/
+
+  console.log('xy', x, y)
 }
 
 // Initializer
-Github.prototype.init = function() {
+Github.prototype.init = function () {
   var cached = this.getCache()
 
   if (cached !== null) {
@@ -101,7 +110,7 @@ Github.prototype.init = function() {
 }
 
 // Display or hide icons
-Github.prototype.displayIcons = function() {
+Github.prototype.displayIcons = function () {
   var options = this.options,
     $iconStars = $('.repo-stars'),
     $iconForks = $('.repo-forks'),
@@ -113,13 +122,13 @@ Github.prototype.displayIcons = function() {
 }
 
 // Request repositories from Github
-Github.prototype.requestData = function(repo) {
+Github.prototype.requestData = function (repo) {
   var that = this
 
   $.ajax({
     url: 'https://api.github.com/repos/' + repo,
     dataType: 'jsonp',
-    success: function(results) {
+    success: function (results) {
       var result_data = results.data,
         isFailling = results.meta.status >= 400 && result_data.message
 
@@ -134,30 +143,30 @@ Github.prototype.requestData = function(repo) {
 }
 
 // Handle Errors requests
-Github.prototype.handleErrorRequest = function(result_data) {
+Github.prototype.handleErrorRequest = function (result_data) {
   console.warn(result_data.message)
   return
 }
 
 // Handle Successful request
-Github.prototype.handleSuccessfulRequest = function(result_data) {
+Github.prototype.handleSuccessfulRequest = function (result_data) {
   this.applyTemplate(result_data)
   this.setCache(result_data)
 }
 
 // Stores repostories in sessionStorage if available
-Github.prototype.setCache = function(result_data) {
+Github.prototype.setCache = function (result_data) {
   // Cache data
   if (window.sessionStorage) {
     window.sessionStorage.setItem(
       'gh-repos:' + this.repo,
-      JSON.stringify(result_data),
+      JSON.stringify(result_data)
     )
   }
 }
 
 // Grab cached results
-Github.prototype.getCache = function() {
+Github.prototype.getCache = function () {
   if (window.sessionStorage) {
     return window.sessionStorage.getItem('gh-repos:' + this.repo)
   } else {
@@ -166,7 +175,7 @@ Github.prototype.getCache = function() {
 }
 
 // Apply results to HTML template
-Github.prototype.applyTemplate = function(repo) {
+Github.prototype.applyTemplate = function (repo) {
   var githubRepo = new GithubRepo(repo),
     $widget = githubRepo.toHTML()
 
@@ -176,10 +185,9 @@ Github.prototype.applyTemplate = function(repo) {
 }
 
 // -- Attach plugin to jQuery's prototype --------------------------------------
-
-;(function($, window, undefined) {
-  $.fn.github = function(options) {
-    return this.each(function() {
+;(function ($, _window, _undefined) {
+  $.fn.github = function (options) {
+    return this.each(function () {
       if (!$(this).data('plugin_github')) {
         $(this).data('plugin_github', new Github(this, options))
       }

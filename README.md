@@ -15,7 +15,7 @@ hard, medium, and soft.
 
 ### Font
 
-The font used in the above preview is [Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans).
+The font used in the above preview is [Lilex](https://github.com/mishamyrt/Lilex).
 
 ### Bracket Pair Colorizer
 

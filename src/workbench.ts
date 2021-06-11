@@ -24,6 +24,7 @@ export default (
   const highlightHard = c(Color.Yellow, 1)
   const selection = c(Color.Aqua)
   const findMatch = c(Color.Purple, 1)
+  const highlightWordSoft = c(Color.Blue)
   const highlightWord = c(Color.Blue, 1)
   const cursor = primary
   const links = c(Color.Blue, 1)
@@ -85,8 +86,8 @@ export default (
     // Progress Bars
     'progressBar.background': highlight,
     // Lists
-    'list.activeSelectionBackground': highlight,
-    'list.activeSelectionForeground': bg,
+    'list.activeSelectionBackground': bgSoft,
+    'list.activeSelectionForeground': fgHard,
     'list.inactiveSelectionBackground': opacity(50, bgSoft),
     'list.inactiveSelectionForeground': fgHard,
     'list.hoverBackground': opacity(25, bgSoft),
@@ -94,7 +95,8 @@ export default (
     'list.focusBackground': bgSoft,
     'list.focusForeground': fg,
     'list.dropBackground': bgSoft,
-    'list.highlightForeground': highlight,
+    'list.focusHighlightForeground': highlightWord,
+    'list.highlightForeground': highlightWordSoft,
     // Side Bar
     'sideBar.background': bg,
     'sideBar.foreground': fg,
@@ -185,8 +187,9 @@ export default (
     'editorWidget.border': border,
     'editorSuggestWidget.background': bg,
     'editorSuggestWidget.foreground': fg,
-    'editorSuggestWidget.highlightForeground': highlight,
-    'editorSuggestWidget.selectedBackground': opacity(37.5, bgSoft),
+    'editorSuggestWidget.focusHighlightForeground': highlightWord,
+    'editorSuggestWidget.highlightForeground': highlightWordSoft,
+    'editorSuggestWidget.selectedBackground': bgSoft,
     'editorSuggestWidget.border': border,
     // Peek Views
     'peekView.border': border,

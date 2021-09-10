@@ -4,7 +4,7 @@
   "displayName": "Gruvbox Minor",
   "homepage": "https://github.com/adamsome/vscode-theme-gruvbox-minor",
   "description": "Gruvbox Minor",
-  "publisher": "adamsome",
+  "publisher": "adamsome-gruvbox",
   "author": "adamsome (https://github.com/adamsome)",
   "license": "MIT",
   "scripts": {

@@ -17,29 +17,12 @@ hard, medium, and soft.
 
 The font used in the above preview is [Lilex](https://github.com/mishamyrt/Lilex).
 
-### Bracket Pair Colorizer
+### Bracket Highlight
 
-If you use [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer), add the following to your settings for matching colors:
+In Visual Studio Code user settings, add the following to enable editor bracket highlighting:
 
 ```json
-  "bracketPairColorizer.consecutivePairColors": [
-    "()",
-    "[]",
-    "{}",
-    [
-      "#7c6f64",
-      "#a89984",
-      "#d5c4a1",
-      "#8ec07c",
-      "#83a598",
-      "#d3869b",
-      "#fb4934",
-      "#fe8019",
-      "#fabd2f",
-      "#b8bb26"
-    ],
-    "#cc241d"
-  ],
+  "editor.bracketPairColorization.enabled": true,
 ```
 
 ### Indent-rainbow
@@ -74,6 +57,17 @@ Customizations and tweaks can be made to all six themes at once by:
     and/or [workbench](src/theme/workbench) for editor chrome changes,
 2.  Running `npm start`, which builds the TypeScript files and launches a
     program that regenerates the six theme files.
+
+#### Publishing
+
+```bash
+npm start
+# Replace <id> w/ vscode marketplace publisher ID (e.g. `adamsome-gruvbox`)
+vsce login <id>
+vsce package
+# Replace <...> w/ the semanitic version segment to increment
+vsce publish <'patch' | 'minor' | 'major'>
+```
 
 ## Thank Yous
 

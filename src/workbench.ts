@@ -178,7 +178,7 @@ export default (
     'editorInfo.foreground': infoSoft,
     'editorLink.activeForeground': fg,
     // Editor Bracket Highlight
-    'editorBracketHighlight.foreground1': c(Color.FG, 2),
+    'editorBracketHighlight.foreground1': c(Color.FG, 3),
     'editorBracketHighlight.foreground2': c(Color.Aqua),
     'editorBracketHighlight.foreground3': c(Color.Blue),
     'editorBracketHighlight.foreground4': c(Color.Purple),

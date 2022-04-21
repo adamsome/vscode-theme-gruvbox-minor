@@ -8,6 +8,7 @@ export default (
   const bg = c(Color.BG)
   const bgSoft = c(Color.BG, 1)
   const bgSofter = c(Color.BG, 2)
+  const bgDrop = opacity(25, c(Color.Aqua, 1))
   const transparent = opacity(0, c(Color.BG))
   // Foreground
   const fg = c(Color.Gray)
@@ -56,6 +57,7 @@ export default (
     'widget.shadow': opacity(18.75, bg),
     'selection.background': selection,
     errorForeground: error,
+    'sash.hoverBorder': primary,
     // Buttons
     'button.background': opacity(80, primary),
     'button.foreground': bg,
@@ -69,10 +71,13 @@ export default (
     'input.border': border,
     'input.foreground': fg,
     'input.placeholderForeground': opacity(37.5, fg),
+    'inputValidation.errorForeground': error,
     'inputValidation.errorBorder': error,
     'inputValidation.errorBackground': opacity(50, errorSoft),
+    'inputValidation.infoForeground': info,
     'inputValidation.infoBorder': info,
     'inputValidation.infoBackground': opacity(50, infoSoft),
+    'inputValidation.warningForeground': warn,
     'inputValidation.warningBorder': warn,
     'inputValidation.warningBackground': opacity(50, warnSoft),
     // Scrollbars
@@ -94,7 +99,7 @@ export default (
     'list.hoverForeground': fg,
     'list.focusBackground': bgSoft,
     'list.focusForeground': fg,
-    'list.dropBackground': bgSoft,
+    'list.dropBackground': bgDrop,
     'list.focusHighlightForeground': highlightWord,
     'list.highlightForeground': highlightWordSoft,
     // Side Bar
@@ -106,7 +111,7 @@ export default (
     'sideBarSectionHeader.foreground': fg,
     // Activity Bar
     'activityBar.background': bg,
-    'activityBar.dropBackground': bg,
+    'activityBar.dropBackground': bgDrop,
     'activityBar.foreground': fg,
     'activityBar.border': transparent,
     'activityBarBadge.background': primary,
@@ -116,7 +121,7 @@ export default (
     'editorGroupHeader.noTabsBackground': bg,
     'editorGroupHeader.tabsBackground': bg,
     'editorGroup.border': borderSubtle,
-    'editorGroup.dropBackground': opacity(37.5, bgSoft),
+    'editorGroup.dropBackground': bgDrop,
     'editorGroup.noTabsBackground': bgSoft,
     'editorGroup.tabsbackground': bgSoft,
     'editorGroup.tabsBorder': borderSubtle,
@@ -187,9 +192,9 @@ export default (
     'editorBracketHighlight.unexpectedBracket.foreground': c(Color.Red),
     // Diff Editors
     'diffEditor.insertedTextBackground': opacity(18.75, added),
-    'diffEditor.insertedTextBorder': transparent,
+    'diffEditorGutter.insertedLineBackground': opacity(7.5, added),
     'diffEditor.removedTextBackground': opacity(18.75, deleted),
-    'diffEditor.removedTextBorder': transparent,
+    'diffEditorGutter.removedLineBackground': opacity(7.5, deleted),
     // Widgets
     'editorWidget.background': bg,
     'editorWidget.border': border,

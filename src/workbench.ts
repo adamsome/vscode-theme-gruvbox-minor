@@ -55,7 +55,7 @@ export default (
     focusBorder: border,
     foreground: fg,
     'widget.shadow': opacity(18.75, bg),
-    'selection.background': selection,
+    'selection.background': opacity(25, selection),
     errorForeground: error,
     'sash.hoverBorder': primary,
     // Buttons

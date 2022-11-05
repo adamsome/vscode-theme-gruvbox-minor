@@ -18,6 +18,8 @@ export enum Color {
   Purple = 'purple',
   Aqua = 'aqua',
   Orange = 'orange',
+  // TODO: Sticky Scroll (currently no border available, temp use custom bg)
+  BG2 = 'bg2',
 }
 
 export interface WorkbenchColors {

@@ -88,6 +88,10 @@ const getDark = (subtype: Subtype): Record<Color, string[]> => ({
   purple: [NAMED.neutral_purple, NAMED.bright_purple],
   aqua: [NAMED.neutral_aqua, NAMED.bright_aqua],
   orange: [NAMED.neutral_orange, NAMED.bright_orange],
+  bg2:
+    subtype === Subtype.Soft
+      ? [NAMED.dark1, NAMED.dark2]
+      : [NAMED.dark0_soft, NAMED.dark1],
 })
 
 const getLight = (subtype: Subtype): Record<Color, string[]> => ({
@@ -107,6 +111,10 @@ const getLight = (subtype: Subtype): Record<Color, string[]> => ({
   purple: [NAMED.neutral_purple, NAMED.faded_purple],
   aqua: [NAMED.neutral_aqua, NAMED.faded_aqua],
   orange: [NAMED.neutral_orange, NAMED.faded_orange],
+  bg2:
+    subtype === Subtype.Soft
+      ? [NAMED.light1, NAMED.light2]
+      : [NAMED.light0_soft, NAMED.light1],
 })
 
 export const MAP: Record<Type, Record<Subtype, Record<Color, string[]>>> = {

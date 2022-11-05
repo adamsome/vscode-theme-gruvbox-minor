@@ -85,6 +85,9 @@ export default (
     'scrollbarSlider.activeBackground': highlight,
     'scrollbarSlider.hoverBackground': fgSubtle,
     'scrollbarSlider.background': opacity(59.765625, bgSofter),
+    // Sticky Scroll
+    'editorStickyScroll.background': c(Color.BG2),
+    'editorStickyScrollHover.background': c(Color.BG2, 1),
     // Badges
     'badge.background': primary,
     'badge.foreground': bg,
